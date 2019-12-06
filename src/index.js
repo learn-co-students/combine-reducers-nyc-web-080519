@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import manageAuthorsAndBooks from './reducers/manageAuthorsAndBooks';
+import rootReducer from './reducers/rootReducer';
 
 
-const store = createStore(manageAuthorsAndBooks, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,3 +14,6 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+
+// By passing our rootReducer to the createStore method, the application maintains its initial state of { books: [], authors: [] }
